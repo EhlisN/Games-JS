@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(144, 163, 180);
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.game {
+  width: 100%;
+  height: 450px;
+  position: relative;
+}
+.road {
+  width: 300%;
+  height: 100%;
+  background: url(img/road2.jpg) repeat top;
+  position: absolute;
+}
+.rock {
+  width: 70px;
+  height: 70px;
+  background: url(img/rock1.png) no-repeat top/contain;
+  position: absolute;
+}
+.car {
+  width: 150px;
+  height: 70px;
+  background: url(img/car2.png) no-repeat top/contain;
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+.panel {
+  width: 100%;
+  background-color: rgb(64, 45, 82);
+  border: 3px solid rgb(229, 255, 0);
+  border-radius: 220px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+}
+.transmission {
+  width: 100px;
+  height: 100px;
+  background: url(img/transmission-removebg-preview.png) no-repeat top/contain;
+  border-radius: 50%;
+  border: 3px solid rgb(185, 179, 179);
+  box-sizing: content-box;
+  position: relative;
+}
+.transmission_show {
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgb(220, 173, 224);
+  border-radius: 50%;
+  background-color: rgba(238, 14, 14, 0.3);
+  position: absolute;
+  top: 62px;
+  left: 23px;
+}
+.status {
+  width: 200px;
+  height: 140px;
+  border: 3px solid rgb(185, 179, 179);
+  box-sizing: content-box;
+  border-radius: 15px;
+  text-align: center;
+  padding: 10px 20px;
+  background-color: rgba(229, 240, 248, 0.3);
+  font-size: 20px;
+}
+.status span {
+  font-size: 22px;
+  color: rgb(213, 214, 243);
+  font-weight: 900;
+}
+.status .countRock {
+  font-size: 50px;
+}
+.speed {
+  width: 180px;
+  height: 180px;
+  background: url(img/speedometer.png) no-repeat top/contain;
+  color: bisque;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgb(185, 179, 179);
+  border-radius: 50%;
+  box-sizing: content-box;
+}
+.direction {
+  width: 200px;
+  height: 140px;
+  border: 3px solid rgb(185, 179, 179);
+  box-sizing: content-box;
+  border-radius: 15px;
+  text-align: center;
+  padding: 10px 20px;
+  background-color: rgba(229, 240, 248, 0.3);
+}
+h3 {
+  color: brown;
+}
+.left_arrow {
+  margin-left: 10px;
+}
+.right_arrow {
+  margin-left: 20px;
+}
+.start {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: url(img/engine.png) no-repeat top/cover;
+  border: 3px solid rgb(185, 179, 179);
+  box-sizing: content-box;
+}
+.game_over {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(242, 246, 248, 0.2);
+  font-size: 150px;
+  font-weight: 700;
+  font-family: Bradley Hand, cursive;
+  color: rgb(231, 10, 10);
+  justify-content: center;
+  align-items: center;
+}
+.start_game {
+  display: none;
+  text-align: center;
+  padding-top: 100px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 150px;
+  font-weight: 700;
+  font-family: Bradley Hand, cursive;
+  color: rgb(231, 10, 10, 0.5);
+}
+
+@media (max-width: 940px) {
+  .status {
+    position: absolute;
+    top: 30px;
+    left: calc(100vw - 250px);
+  }
+  .direction {
+    position: absolute;
+    top: 240px;
+    left: calc(100vw - 250px);
+  }
+}
+.header {
+  width: 96%;
+  position: absolute;
+  padding: 0 10px;
+  z-index: 1000;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 32px;
+  color: rgb(255, 213, 0);
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.menu__btns {
+  padding: 10px;
+}
+.menu__btns a {
+  text-decoration: none;
+  color: rgb(255, 213, 0);
+  font-weight: 700;
+  border: 1px solid rgb(236, 200, 17);
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin-right: 20px;
+}
+.header a:hover {
+  cursor: pointer;
+  color: rgb(255, 94, 0);
+  border-color: rgb(255, 94, 0);
+}
+.burger__menu {
+  display: none;
+  width: 30px;
+  height: 30px;
+  background: url('./img/menu1.png') no-repeat center;
+  margin-top: 5px;
+}
+
+.burger__menu:hover {
+  background-image: url('./img/menu2.png');
+}
+
+@media (max-width: 700px) {
+  .menu__btns {
+    width: 100%;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    top: 25px;
+    align-self: center;
+  }
+  .menu__btns a {
+    margin: 5px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  .burger__menu {
+    display: block;
+  }
+  .burger__menu.open {
+    background-image: url('./img/close1.png');
+  }
+  .burger__menu.open:hover {
+    background-image: url('./img/close2.png');
+  }
+  .burger__menu.open ~ .menu__btns {
+    display: flex;
+  }
+}

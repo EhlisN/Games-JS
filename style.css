@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 10px;
+  overflow-x: hidden;
+  background: url('./img/bg3.jpg') no-repeat center/cover;
+}
+
+.header {
+  width: 96%;
+  position: absolute;
+  padding: 0 10px;
+  z-index: 1000;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 32px;
+  color: rgb(255, 213, 0);
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.menu__btns {
+  padding: 10px;
+}
+.menu__btns a {
+  text-decoration: none;
+  color: rgb(255, 213, 0);
+  font-weight: 700;
+  border: 1px solid rgb(236, 200, 17);
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin-right: 20px;
+}
+.header a:hover {
+  cursor: pointer;
+  color: rgb(255, 94, 0);
+  border-color: rgb(255, 94, 0);
+}
+.burger__menu {
+  display: none;
+  width: 30px;
+  height: 30px;
+  background: url('./img/menu1.png') no-repeat center;
+  margin-top: 5px;
+}
+
+.burger__menu:hover {
+  background-image: url('./img/menu2.png');
+}
+
+@media (max-width: 700px) {
+  .menu__btns {
+    width: 100%;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    top: 25px;
+    align-self: center;
+  }
+  .menu__btns a {
+    margin: 5px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  .burger__menu {
+    display: block;
+  }
+  .burger__menu.open {
+    background-image: url('./img/close1.png');
+  }
+  .burger__menu.open:hover {
+    background-image: url('./img/close2.png');
+  }
+  .burger__menu.open ~ .menu__btns {
+    display: flex;
+  }
+}
+
+.games {
+  width: 60%;
+  margin: 50px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.game {
+  width: 45%;
+  border: 2px solid rgb(130, 138, 159);
+  margin-bottom: 30px;
+  background-color: rgba(230, 187, 236, 0.859);
+  box-shadow: 0px 0px 15px 2px rgba(255, 255, 255, 0.77);
+}
+
+.game__img {
+  width: 100%;
+}
+
+.game__btn {
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid #fff;
+  background-color: rgb(85, 59, 134);
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 10px;
+}

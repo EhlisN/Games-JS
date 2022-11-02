@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Task 3</title>
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo">JSGames</a>
+      <div class="burger__menu"></div>
+      <div class="menu__btns">
+        <a class="menu__main" href="../index.html">MAIN</a>
+        <a class="menu__tic" href="../cards/index.html">CARDS</a>
+        <a class="menu__cards" href="../car/hw5.html">CAR</a>
+        <a class="menu__cards" href="../gem-puzzle/index.html">15 PUZZLE</a>
+      </div>
+    </header>
+    <div class="container">
+      <div class="game"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="game_over">CGHCJYGVJ!</div>
+    </div>
+
+    <script>
+      // Burger-menu
+
+      let burger = document.querySelector('.burger__menu');
+      let open = false;
+
+      burger.addEventListener('click', () => {
+        if (!open) {
+          burger.classList.add('open');
+          open = true;
+        } else {
+          burger.classList.remove('open');
+          open = false;
+        }
+      });
+
+      // Game
+
+      let container = document.querySelector('.container');
+      let blocks = document.querySelectorAll('.block');
+      let gameOver = document.querySelector('.game_over');
+      gameOver.addEventListener('click', () => {
+        window.location.reload(true);
+      });
+      let winner = false;
+      let count = 0;
+      let step = true;
+
+      for (let el of blocks) {
+        el.addEventListener('click', () => {
+          if (step) getEl();
+        });
+      }
+
+      function getEl() {
+        if (event.target.textContent == '') {
+          event.target.textContent = 'X';
+          checkWinner();
+          count++;
+          step = false;
+        }
+        if (winner == false) {
+          setTimeout(turnComp, 500);
+        }
+        if (count == 5 && winner == false) {
+          gameOver.textContent = 'Ничья!';
+          gameOver.style.display = 'flex';
+        }
+      }
+
+      function turnComp() {
+        let emptyBlocks = [];
+        for (let el of blocks) {
+          if (el.textContent == '') {
+            emptyBlocks.push(el);
+          }
+        }
+        if (emptyBlocks.length > 0) {
+          let num = Math.trunc(Math.random() * emptyBlocks.length);
+          emptyBlocks[num].textContent = 'O';
+        }
+        step = true;
+        checkWinner();
+      }
+
+      function checkWinner() {
+        let win = [
+          [0, 1, 2],
+          [3, 4, 5],
+          [6, 7, 8],
+          [0, 3, 6],
+          [1, 4, 7],
+          [2, 5, 8],
+          [0, 4, 8],
+          [2, 4, 6],
+        ];
+        for (let i = 0; i < win.length; i++) {
+          if (
+            blocks[win[i][0]].textContent == 'X' &&
+            blocks[win[i][1]].textContent == 'X' &&
+            blocks[win[i][2]].textContent == 'X'
+          ) {
+            gameOver.textContent = 'Вы выйграли!';
+            gameOver.style.display = 'flex';
+            winner = true;
+          } else if (
+            blocks[win[i][0]].textContent == 'O' &&
+            blocks[win[i][1]].textContent == 'O' &&
+            blocks[win[i][2]].textContent == 'O'
+          ) {
+            gameOver.textContent = 'Вы проиграли!';
+            gameOver.style.display = 'flex';
+            winner = true;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

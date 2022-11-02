@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cards game</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo" href="#">JSGames</a>
+      <div class="burger__menu"></div>
+      <div class="menu__btns">
+        <a class="menu__main" href="../index.html">MAIN</a>
+        <a class="menu__tic" href="../tic-tac-toe/hw3.html">TIC-TAC-TOE</a>
+        <a class="menu__cards" href="../car/hw5.html">CAR</a>
+        <a class="menu__cards" href="../gem-puzzle/index.html">15 PUZZLE</a>
+      </div>
+    </header>
+    <div class="game__container">
+      <div class="field__container">
+        <div class="cards" id="cards1"></div>
+        <div class="cards" id="cards2"></div>
+        <div class="cards" id="cards3"></div>
+        <div class="cards" id="cards4"></div>
+        <div class="cards" id="cards5"></div>
+        <div class="cards" id="cards6"></div>
+        <div class="cards" id="cards7"></div>
+        <div class="cards" id="cards8"></div>
+        <div class="cards" id="cards9"></div>
+        <div class="cards" id="cards10"></div>
+        <div class="cards" id="cards11"></div>
+        <div class="cards" id="cards12"></div>
+        <div class="cards" id="cards13"></div>
+        <div class="cards" id="cards14"></div>
+        <div class="cards" id="cards15"></div>
+        <div class="cards" id="cards16"></div>
+      </div>
+      <div class="control__panel">
+        <p class="hide" id="text1">
+          ХОД: <span id="info1" class="red">0</span>
+        </p>
+        <div class="button__container">
+          <div class="button" id="button">Начать игру</div>
+        </div>
+        <p class="hide" id="text2">
+          СОВПАДЕНИЙ: <span id="info2" class="green">0</span>
+        </p>
+      </div>
+    </div>
+
+    <div id="win_window" class="win_window hide">
+      <p id="win_text" class="win_text">
+        Вы победили!!! <br /><span class="result"></span>
+      </p>
+    </div>
+  </body>
+</html>

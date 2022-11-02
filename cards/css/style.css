@@ -1,0 +1,267 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+body {
+  width: 100vw;
+  height: 50vw;
+  overflow: hidden;
+  margin: 0;
+  background-image: url('../img/main_background.png');
+  background-repeat: repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.game__container {
+  margin-top: 3vh;
+  width: 90%;
+  height: 80%;
+  background-image: url('../img/game_background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1vmin;
+}
+.field__container {
+  width: 100%;
+  height: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 1vw;
+}
+.field__container .cards {
+  width: 11.5%;
+  height: 47%;
+  border-radius: 1.5vmin;
+  background-image: url(../img/cards_fon.png);
+  background-size: 100% 100%;
+  background-position: center;
+}
+.field__container .cards:hover {
+  cursor: pointer;
+}
+.control__panel {
+  width: 100%;
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.control__panel .button__container {
+  width: 15%;
+  min-width: 100px;
+  height: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.control__panel .button__container .button {
+  width: 90%;
+  height: 90%;
+  color: #fff;
+  background-color: #6496c8;
+  border: none;
+  border-radius: 1vmin;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: calc(1rem);
+  -webkit-box-shadow: 0 0.8vmin #27496d;
+  box-shadow: 0 0.8vmin #27496d;
+  -webkit-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+.control__panel .button__container .button:hover {
+  background-color: #417cb8;
+  cursor: pointer;
+}
+.control__panel .button__container .button:active {
+  background-color: #417cb8;
+  -webkit-box-shadow: 0 0.2vmin #27496d;
+  box-shadow: 0 0.2vmin #27496d;
+  -webkit-transform: translateY(0.5vmin);
+  -ms-transform: translateY(0.5vmin);
+  transform: translateY(0.5vmin);
+}
+.control__panel p {
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.control__panel p span {
+  font-weight: bold;
+}
+.control__panel p .red {
+  color: #e70c0c;
+}
+.control__panel p .green {
+  color: #1bdf09;
+}
+.hide {
+  display: none !important;
+}
+.win {
+  -webkit-box-shadow: inset 1vmin 1vmin 1px green, inset -1vmin 1vmin 1px green,
+    inset 1vmin -1vmin 1px green, inset -1vmin -1vmin 1px green;
+  box-shadow: inset 1vmin 1vmin 1px green, inset -1vmin 1vmin 1px green,
+    inset 1vmin -1vmin 1px green, inset -1vmin -1vmin 1px green;
+}
+.move {
+  -webkit-box-shadow: inset 1vmin 1vmin 1px #ff5c01,
+    inset -1vmin 1vmin 1px #ff5c01, inset 1vmin -1vmin 1px #ff5c01,
+    inset -1vmin -1vmin 1px #ff5c01;
+  box-shadow: inset 1vmin 1vmin 1px #ff5c01, inset -1vmin 1vmin 1px #ff5c01,
+    inset 1vmin -1vmin 1px #ff5c01, inset -1vmin -1vmin 1px #ff5c01;
+}
+.win_window {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 1vw;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.win_window .win_text {
+  text-align: center;
+  color: red;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: calc(6rem + 6vmin);
+  text-shadow: 0.5vmin 0.5vmin 0.5vmin gold;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  width: 96%;
+  position: absolute;
+  padding: 0 10px;
+  z-index: 1000;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 32px;
+  color: rgb(255, 213, 0);
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.menu__btns {
+  padding: 10px;
+}
+.menu__btns a {
+  text-decoration: none;
+  color: rgb(255, 213, 0);
+  font-weight: 700;
+  border: 1px solid rgb(236, 200, 17);
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin-right: 20px;
+}
+.header a:hover {
+  cursor: pointer;
+  color: rgb(255, 94, 0);
+  border-color: rgb(255, 94, 0);
+}
+.burger__menu {
+  display: none;
+  width: 30px;
+  height: 30px;
+  background: url('../img/menu1.png') no-repeat center;
+  margin-top: 5px;
+}
+
+.burger__menu:hover {
+  background-image: url('../img/menu2.png');
+}
+
+@media (max-width: 700px) {
+  .menu__btns {
+    width: 100%;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    top: 25px;
+    align-self: center;
+  }
+  .menu__btns a {
+    margin: 5px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  .burger__menu {
+    display: block;
+  }
+  .burger__menu.open {
+    background-image: url('../img/close1.png');
+  }
+  .burger__menu.open:hover {
+    background-image: url('../img/close2.png');
+  }
+  .burger__menu.open ~ .menu__btns {
+    display: flex;
+  }
+}
