@@ -43,6 +43,7 @@ let minutes = 0;
 let hours = 0;
 let size = 3;
 let score = [];
+let correctOrder = true;
 
 let curSize = createEl('div', 'curSize');
 curSize.innerHTML = `Frame size: ${size}x${size}`;
@@ -51,10 +52,11 @@ container.append(curSize);
 let sizeBox = createEl('div', 'sizeBox');
 sizeBox.innerHTML = 'Other sizes: ';
 container.append(sizeBox);
-for (let i = 3; i < 9; i++) {
+for (let i = 2; i < 9; i++) {
   let sizeBtn = createEl('span', 'size');
   sizeBtn.innerHTML = `${i}x${i}`;
   sizeBtn.addEventListener('click', () => {
+    stopEl.style.display = 'none';
     size = i;
     curSize.innerHTML = `Frame size: ${size}x${size}`;
     startGame();
@@ -176,6 +178,7 @@ startBtn.addEventListener('click', () => {
 });
 
 // create start game
+
 function startGame() {
   let numbers = [];
   for (let i = 0; i < size * size - 1; i++) {
@@ -183,7 +186,10 @@ function startGame() {
   }
   cellSize = 100 / size;
   field.innerHTML = '';
-  numbers = numbers.sort(() => Math.random() - 0.5);
+  do {
+    numbers = numbers.sort(() => Math.random() - 0.5);
+    checkOrder(numbers);
+  } while (correctOrder != true);
   empty = {
     val: 0,
     top: 0,
@@ -276,4 +282,23 @@ function move(ind) {
     if (score.length > 10) score.pop();
     localStorage.score = JSON.stringify(score);
   }
+}
+
+function checkOrder(arr) {
+  let zeroRow = 1;
+  let sum = 0;
+  for (let i = 0; i < arr.length - 1; i++) {
+    let val1 = arr[i];
+    for (let j = i + 1; j < arr.length; j++) {
+      let val2 = arr[j];
+      if (val1 > val2) sum++;
+    }
+  }
+  sum += zeroRow;
+  if (sum % 2 != 0) {
+    correctOrder = true;
+  } else {
+    correctOrder = false;
+  }
+  return correctOrder;
 }
